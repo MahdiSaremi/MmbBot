@@ -16,5 +16,5 @@
     "require": {
         "mmb/framework": "dev-main"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
