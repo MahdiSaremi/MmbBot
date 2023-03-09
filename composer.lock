@@ -1,0 +1,75 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f466eff08c46e5fdf93935cfca81bceb",
+    "packages": [
+        {
+            "name": "mmb/framework",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MahdiSaremi/Mmb.git",
+                "reference": "fdb3ddf953b91b3f5dbef61d43529c52cc49d029"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MahdiSaremi/Mmb/zipball/fdb3ddf953b91b3f5dbef61d43529c52cc49d029",
+                "reference": "fdb3ddf953b91b3f5dbef61d43529c52cc49d029",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": "^7.3|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "helpers/helpers.php",
+                    "helpers/jdf.php"
+                ],
+                "psr-4": {
+                    "Mmb\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "Mahdi Saremi",
+                    "email": "mahdisarmi00@gmail.com"
+                }
+            ],
+            "description": "Telegram bot framework",
+            "homepage": "https://mmblib.ir",
+            "keywords": [
+                "bot",
+                "framework",
+                "robot",
+                "telegram"
+            ],
+            "support": {
+                "issues": "https://github.com/MahdiSaremi/Mmb/issues",
+                "source": "https://github.com/MahdiSaremi/Mmb/tree/main"
+            },
+            "time": "2022-12-25T16:59:10+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "mmb/framework": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
