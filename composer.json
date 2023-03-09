@@ -14,7 +14,7 @@
     "authors": [
     ],
     "require": {
-        "mmb/framework": "dev-main"
+        "mmb/framework": "^4.0"
     },
     "minimum-stability": "stable"
 }
