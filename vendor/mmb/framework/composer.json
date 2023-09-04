@@ -1,0 +1,30 @@
+{
+    "name": "mmb/framework",
+    "description": "Telegram bot framework",
+    "keywords": ["telegram", "bot", "robot", "framework"],
+    "license": "mit",
+    "type": "library",
+    "homepage": "https://mmblib.ir",
+    "autoload": {
+        "psr-4": {
+            "Mmb\\": "src/"
+        },
+        "files": [
+            "helpers/helpers.php",
+            "helpers/jdf.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Mahdi Saremi",
+            "email": "mahdisarmi00@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*",
+        "php": "^8.2"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

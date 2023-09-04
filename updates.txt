@@ -1,0 +1,211 @@
+
+# 1402/02/01 21:26
+> Responce Update
+> Details:
+    Added responce()
+> Changes:
+    helpers
+    Mmb/Controller/Responce
+    Mmb/Controller/Form/Filter
+    Mmb/Controller/Form
+    Providers/AppProvider
+    Providers/GuardProvider
+    App/Addon/...
+
+
+
+# 1402/02/01 22:23
+> Better Controller
+> Details:
+    Changed panel() and start() to main()
+    Added custom messages to main()
+    Added return() method
+> Changes:
+    App/...
+
+
+
+# 1402/02/03 11:46
+> Scope & Inner Condition Query
+> Details:
+    Can use scopeName() for $query->name()
+    Can use $query->where(function()) for inner Condition
+    Added and() and or() methods
+> Changes:
+    Mmb/Db/Driver/SqlBase/SqlQuery
+    Mmb/Db/QueryBuilder
+    Mmb/Db/Table/Table
+
+
+
+# 1402/02/03 15:05
+> Fix problems
+> Details:
+    Fixed 'name' argument
+    Add $isJoined and $isLeft to MemberUpd
+    Fixed 'msg_type' lang address
+    Menu with() value, will save in $user->save()
+> Changes:
+    Mmb/Core/ArgsParser
+    Mmb/Update/Chat/MemberUpd
+    Mmb/Controller/Form/UpdateFilter
+    Mmb/Controller/StepHandler/MenuHandler
+
+
+
+# 1402/02/04 14:23
+> Update Filter
+> Details:
+    ArgsParser formatted
+    Added update filters for webhook
+    Added real Success/Fail status in install
+> Changes:
+    install
+    Configs/app
+    Mmb/Update/Upd
+    Mmb/Core/ArgsParser
+    Mmb/Core/Request
+    
+
+
+# 1402/02/05 8:58
+> Added somethings
+> Details:
+    Added createMenu() with Closure type
+    Set Controller::invoke() for main() invoke
+    Added findCache() to Table
+    Added setMessage() and responceIt()
+    Added PageController
+> Changes:
+    helpers
+    Mmb/Controller/Menu
+    Mmb/Controller/StepHandler/MenuHandler
+    Mmb/Controller/Controller
+    Mmb/Db/Table/Table
+    Mmb/Controller/Responce
+    Mmb/Controller/InlinePageController
+    Mmb/Controller/NormalPageController
+
+
+
+# 1402/02/06 14:41
+> Better queries
+> Details:
+    Convert 'table1.col' to `table1`.`col`, and 'test.*' to `test`.*
+    Fixed inner where() bug
+    Modify out apply to insert() and create() methods
+> Changes:
+    Mmb/Db/QueryBuilder
+    Mmb/Db/Driver/SqlBase/SqlQuery
+    Mmb/Db/Driver/MySql/Query
+    Mmb/Db/QueryCol
+    Mmb/Db/Table/Table
+    Mmb/Mmb
+    Mmb/Update/Message/Msg
+    Mmb/Update/Chat/Chat
+
+
+
+# 1402/02/09 12:09
+> Array in setMessage()
+> Details:
+    Can use array in setMessage()
+> Changes:
+    helpers
+    Mmb/Controller/Responce
+
+
+
+# 1402/02/11
+> Somethings
+> Details:
+    Add some methods in Text
+> Changes:
+    Mmb/Tools/Text
+
+
+
+# 1402/02/15
+> Big number & responce
+    Add BigNumber class
+    Add forward and copy to send types
+    Add reply() and send() methods
+    Some changes in query builder
+> Changes:
+    helpers
+    Providers/AppProvider
+    Mmb/Mmb
+    Mmb/Big/BigNumber
+    Mmb/Controller/Responce
+    Mmb/Db/Driver/SqlBase/SqlQuery
+    Mmb/Db/QueryBuilder
+    Mmb/Tools/ATool/Base
+    Mmb/Tools/ATool/AIter2D
+
+
+
+
+# 1402/02/25
+> Debug
+> Changes:
+    Mmb/Listeners/Listeners
+    Mmb/Update/Chat/HasSimpleChatMethods
+    Mmb/Background/Background
+
+
+
+////////////////////////////////////      IMPORTANT - PAY ATTENTION      ////////////////////////////////////
+
+
+
+#1402/02/26
+> Menu default messages & Step fix bug
+    Add set message for menu
+    Add get names of menus
+    Fix step bug
+> Changes:
+    helpers
+    Providers/UserProvider
+    Mmb/Controller/Menu
+    Mmb/Controller/MenuSubInline
+    Mmb/Controller/MenuBase
+    Mmb/Controller/Controller
+    Mmb/Controller/StepHandler/StepHandler
+    Mmb/Db/QueryCol
+    Mmb/Listeners/Listeners
+    Mmb/Controller/Form/UpdateFilter
+    
+
+#1402/03/02
+> ...
+    Add methods getOr and findOr
+> Changes:
+    helpers
+    Lang/Form/*
+    Mmb/Db/QueryBuilder
+    Mmb/Db/Table/Table
+    Mmb/Db/Relation/*
+    Mmb/ExtraThrow/ExtraErrorMessage
+
+
+#1402/03/04
+> Database query builder
+    Query builder update
+    getCell()
+    selectSub(QueryBuilder)
+    insert(QueryBuilder)
+> Changes:
+    Mmb/Db/QueryBuilder
+    Mmb/Db/Table/Table
+    Mmb/Db/Driver/*
+
+
+#1402/03/14
+> Nice features
+    whereRaw(QueryBuilder)
+    whereRaw -> "( QUERY )"
+    Class::this() instead of Class::$this
+    keyIf & keyElseIf & keyElse
+    Controller::invokeWith("Message")
+    all() return Arr
+    pluck() return Map

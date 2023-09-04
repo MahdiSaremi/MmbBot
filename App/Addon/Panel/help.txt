@@ -1,0 +1,3 @@
+
+راه اندازی بدون کامپایلر:
++ Add "App\Addon\Panel\AddonPanelPolicy::class," to "Configs/policies.php"

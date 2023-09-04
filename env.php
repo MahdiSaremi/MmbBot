@@ -22,8 +22,9 @@ return [
     'DB_PORT' => null,
     'DB_USERNAME' => 'root',
     'DB_PASSWORD' => '',
-    'DB_NAME' => '',
+    'DB_NAME' => 'test',
     'DB_PREFIX' => '',
+    'DB_USER' => \Models\User::class,
 
 
     # Pay
@@ -34,6 +35,9 @@ return [
     # Roles constant
     'ROLES_CONST' => [
         // 123456789 => 'developer',
+        1 => 'developer',
+        2 => 'admin',
+        3 => 'developer|debugger',
         // id => 'role1|role2|role3',
     ],
 

@@ -1,0 +1,13 @@
+
+>> پیام همگانی <<
+
+راه اندازی بدون کامپایلر:
++ Add "App\Addon\Panel\ForAll\Models\ForAllQueue::class" to "Configs/database.php"
+
+راه اندازی 2:
++ Cron job 1 minute to "<?php include __DIR__ . '/load.php'; App\Addon\Panel\ForAll\ForAllCron::handle();"
+
+استفاده:
++ Key:
+    \App\Addon\Panel\ForAll\ForAllPanel::key("همگانی", 'main')
+

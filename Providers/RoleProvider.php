@@ -10,7 +10,6 @@ class RoleProvider extends Provider
 
     public function register()
     {
-
         $this->loadConfigFrom(__DIR__ . '/../Configs/roles.php', 'roles');
 
         $roles = config()->get('roles.roles');
@@ -20,7 +19,6 @@ class RoleProvider extends Provider
         Role::setDefault('default');
 
         Role::constant($const);
-
     }
     
 }

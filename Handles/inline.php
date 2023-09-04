@@ -5,21 +5,30 @@ return [
     'handlers' => [
 
         /**
-         * Before handlers
+         * Handlers
          */
 
 
+        #region Compiler Handler
+            App\None::callbackQuery(),
+        #endregion
+    
 
         /**
-         * Current handlers
+         * Current step handler
          */
         app('step'),
 
 
 
         /**
-         * After handles
+         * Final handlers
          */
+
+        
+        #region Compiler End Handler
+
+        #endregion
 
 
     ],

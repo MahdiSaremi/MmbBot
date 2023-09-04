@@ -16,10 +16,9 @@ class GuardProvider extends Provider
             $this->registerPolicy($policy);
         }
 
-        $this->notAllowed(function () {
-
-            replyText(lang('access_danied') ?: "شما به این بخش دسترسی ندارید");
-
+        $this->notAllowed(function ()
+        {
+            response(lang('access_danied') ?: "شما به این بخش دسترسی ندارید");
         });
     }
     

@@ -1,10 +1,12 @@
 <?php
 
 namespace Providers; #auto
+
+use Mmb\Controller\StepHandler\StepHandler;
 use Mmb\Provider\Provider;
 use Mmb\Update\Chat\Chat;
 use Mmb\Update\Upd;
-use Mmb\Update\User\User;
+use Mmb\Update\User\UserInfo;
 
 class UserProvider extends Provider
 {
@@ -16,6 +18,7 @@ class UserProvider extends Provider
         $this->updateHandled(function () {
             if($user = \Models\User::$this)
             {
+                StepHandler::modifyOutModel($user);
                 $user->save();
             }
         });
@@ -66,11 +69,12 @@ class UserProvider extends Provider
 	
 	public function loadUser()
 	{
-        if($us = User::$this)
+        if($us = UserInfo::$this)
 		{
 			$user = \Models\User::find($us->id);
 			if($user)
 			{
+                StepHandler::modifyInModel($user);
 				return $user;
 			}
 		}
@@ -79,9 +83,9 @@ class UserProvider extends Provider
 
     public function createUser()
     {
-        if($us = User::$this)
+        if($us = UserInfo::$this)
 		{
-			return \Models\User::createUser(User::$this->id);
+			return \Models\User::createUser(UserInfo::$this->id);
 		}
     }
 

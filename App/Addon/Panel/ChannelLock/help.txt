@@ -1,0 +1,9 @@
+
+>> قفل کانال <<
+
+راه اندازی بدون کامپایلر
++ Add "App\Addon\ChannelLock\ChannelLockHandler::instance()," to "handles/**.php"
+
+استفاده:
++ Key:
+    \App\Addon\Panel\ChannelLock\ChannelLockPanel::key("قفل کانال", 'main')

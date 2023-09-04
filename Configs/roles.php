@@ -12,6 +12,8 @@ return [
          */
         'developer' => [
 
+            'fa' => "مدیر اصلی",
+
             'access_panel' => true,
             'manage_admins' => true,
             'ignore_ban' => true,
@@ -23,8 +25,21 @@ return [
          */
         'admin' => [
 
+            'fa' => "ادمین",
+
             'access_panel' => true,
             'ignore_ban' => true,
+
+        ],
+
+        /**
+         * Debugger (Error logs for custom debug plugins)
+         */
+        'debugger' => [
+
+            'fa' => "دیباگر",
+
+            'debugger' => true,
 
         ],
 
@@ -32,6 +47,8 @@ return [
          * Defualt
          */
         'default' => [
+
+            'fa' => "کاربر",
 
         ],
 

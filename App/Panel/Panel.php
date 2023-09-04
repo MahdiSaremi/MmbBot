@@ -1,31 +1,32 @@
 <?php
+#auto-name
+namespace App\Panel;
 
-namespace App\Panel; #auto
-
-use App\Actions\Menu;
 use App\Home\Home;
-use App\Home\Start\StartController;
-use Mmb\Controller\Menu as MenuBuilder;
+use Mmb\Compile\Attributes\OnCommand;
+use Mmb\Controller\Controller;
 
-class Panel extends PanelBase
+class Panel extends Controller
 {
 
-    public function panel()
+    #[OnCommand(['/panel', 'پنل'])]
+    public function main()
     {
-        replyText("وارد پنل مدیریت شدید:", [
-            'menu' => $this->menu,
-        ]);
-
-        return $this->menu;
+        responseMenu($this->menu, "وارد پنل مدیریت شدید:");
     }
 
     public function menu()
     {
-        return MenuBuilder::new ([
+        return $this->createFixMenu('menu', [
 
-            [ Home::key("بازگشت", 'start') ],
+            [ static::key("بازگشت", 'back') ],
 
         ]);
     }
-    
+
+    public function back()
+    {
+        return Home::invokeWith("به منوی اصلی بازگشتید");
+    }
+
 }

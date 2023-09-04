@@ -3,7 +3,7 @@
 use Mmb\Kernel\Kernel;
 use Mmb\Provider\Provider;
 
-include __DIR__ . '/extractMe.php';
+@include __DIR__ . '/extractMe.php';
 include __DIR__ . '/vendor/autoload.php';
 
 

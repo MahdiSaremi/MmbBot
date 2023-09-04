@@ -1,0 +1,19 @@
+
+>> مدیریت کاربران <<
+
+راه اندازی بدون کامپایلر:
++ Add to "Handles\pv.php":
+    App\Addon\Panel\User\UserList\UserListShow::callbackQuery(),
+    App\Addon\Panel\User\UserList\UserBanListShow::callbackQuery(),
+    App\Addon\Panel\User\UserList\UserAdminListShow::callbackQuery(),
+    App\Addon\Panel\User\Profile\UserManage::callbackQuery(),
+
+استفاده:
++ Key:
+    \App\Addon\Panel\User\UsersPanel::key("مدیریت کاربران", 'main')
+
+شخصی سازی:
++ Edit addon files
+
+بازکردن منوی ویرایش کاربر:
++ \App\Addon\Panel\User\Profile\UserManage::invoke('user', $userid)

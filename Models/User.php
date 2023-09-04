@@ -10,13 +10,19 @@ use Mmb\Db\Table\Table;
 use Mmb\Guard\HasRole;
 use Mmb\Guard\Role;
 
+/**
+ * @property Role $role
+ */
 class User extends Table
 {
-    use HasStep;
     use HasRole;
     
     /** @var User */
     public static $this;
+    public static function this()
+    {
+        return static::$this;
+    }
     
     public static function getTable()
     {
@@ -24,29 +30,13 @@ class User extends Table
     }
 
 
-    /** @var int */
-    public $id;
-    /** @var Role */
-    public $role;
-
-    public function modifyDataIn(array &$data)
-    {
-        $this->modifyStepIn($data);
-        $this->modifyRoleIn($data);
-    }
-
-    public function modifyDataOut(array &$data)
-    {
-        $this->modifyStepOut($data);
-        $this->modifyRoleOut($data);
-    }
-
     public static function generate(QueryCol $table)
     {
         $table->unsignedBigint('id')->primaryKey();
-        
-        self::stepColumn($table);
-        self::roleColumn($table);
+        $table->step();
+        $table->role();
+        $table->bool('ban');
+        $table->int('join_at');
     }
 
     public static function createUser($id)
@@ -55,7 +45,14 @@ class User extends Table
             'id' => $id,
             'step' => null,
             'role' => null,
+            'ban' => false,
+            'join_at' => time(),
         ]);
+    }
+
+    public function test()
+    {
+        return $this->belongsTo();
     }
     
 }

@@ -43,14 +43,21 @@ return [
      */
     'prefix' => env('DB_PREFIX', ''),
 
+    /**
+     * Default user class
+     */
+    'user' => env('DB_USER'),
+
 
     /**
      * Database tables class for installation
      */
     'tables' => [
 
-        Models\User::class,
-
+        #region Compiler Config
+            App\Addon\Panel\ForAll\Models\ForAllQueue::class,
+        #endregion
+        
     ],
 
 ];

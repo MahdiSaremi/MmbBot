@@ -1,37 +1,25 @@
 <?php
-
-namespace App\Home; #auto
+#auto-name
+namespace App\Home;
 
 use App\Panel\Panel;
 use Mmb\Controller\Controller;
-use Mmb\Controller\Menu;
 
 class Home extends Controller
 {
 
-    public function start()
+    public function main()
     {
-        replyText("خوش آمدید", [
-            'menu' => $this->menu,
-        ]);
-
-        return $this->menu;
+        responseMenu($this->menu, "خوش آمدید");
     }
 
     public function menu()
     {
-        return Menu::new ([
+        return $this->createFixMenu('menu', [
 
-            [ self::key('ام ام بی', 'mmb') ],
-
-            [ Panel::allowed() ? Panel::key("پنل مدیریت", 'panel') : null ],
+            [ Panel::keyIfAllowed("پنل مدیریت", 'main') ],
 
         ]);
     }
 
-    public function mmb()
-    {
-        replyText("mmblib.ir :)");
-    }
-    
 }

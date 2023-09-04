@@ -5,21 +5,30 @@ return [
     'handlers' => [
 
         /**
-         * Before handlers
+         * Handlers
          */
 
 
+        #region Compiler Handler
+
+        #endregion
+    
 
         /**
-         * Current handlers
+         * Current step handler
          */
         app('step'),
 
 
 
         /**
-         * After handles
+         * Final handlers
          */
+
+        
+        #region Compiler End Handler
+
+        #endregion
 
 
     ],

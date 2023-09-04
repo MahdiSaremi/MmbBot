@@ -1,15 +1,28 @@
 <?php
+#auto-name
+namespace App\Panel;
 
-namespace App\Panel; #auto
-
+use Mmb\Compile\Attributes\AsPolicy;
 use Mmb\Guard\Policy;
+use Models\User;
 
+#[AsPolicy]
 class AdminPolicy extends Policy
 {
 
-    public function access_panel(\Models\User $user)
+    public function boot()
     {
-        return $user->role->access_panel;
+        $this->classPrefixNeedTo('App\Panel\\', 'access_panel');
+    }
+
+    public function access_panel(?User $user)
+    {
+        return $user && $user->role->access_panel;
+    }
+
+    public function manage_admins(?User $user)
+    {
+        return $user && $user->role->manage_admins;
     }
     
 }

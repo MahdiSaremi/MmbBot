@@ -1,7 +1,10 @@
 <?php
 
+use Mmb\Core\ErrorHandler;
 use Mmb\Db\Table\Table;
+use Mmb\Kernel\Env;
 use Mmb\Mmb;
+use Mmb\Update\Upd;
 
 require_once __DIR__ . '/load.php';
 
@@ -36,7 +39,19 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ fake.php
     ");
 
-    Mmb::$this->setWebhook(config('app.url') . "/core/update-$random.php");
+    try
+    {
+        Mmb::$this->setWebhook([
+            'url' => config('app.url') . "/core/update-$random.php",
+            'filter' => Upd::convertUpdTypes(config('app.updates')) ?: null,
+        ]);
+        $setWebhookResult = true;
+    }
+    catch(Exception $e)
+    {
+        ErrorHandler::defaultStatic()->error($e);
+        $setWebhookResult = false;
+    }
 
 }
 
@@ -51,7 +66,19 @@ else
     $file = explode("/", $files[0]);
     $file = end($file);
 
-    Mmb::$this->setWebhook(config('app.url') . "/core/$file");
+    try
+    {
+        Mmb::$this->setWebhook([
+            'url' => config('app.url') . "/core/$file",
+            'filter' => Upd::convertUpdTypes(config('app.updates')) ?: null,
+        ]);
+        $setWebhookResult = true;
+    }
+    catch(Exception $e)
+    {
+        ErrorHandler::defaultStatic()->error($e);
+        $setWebhookResult = false;
+    }
 
 }
 
@@ -62,7 +89,16 @@ else
 
 // Install or update database
 $tables = config()->get('database.tables', []);
-Table::createOrEditTables($tables);
+try 
+{
+    Table::createOrEditTables($tables);
+    $databaseResult = true;
+}
+catch(Exception $e)
+{
+    $databaseResult = false;
+    ErrorHandler::defaultStatic()->error($e);
+}
 
 
 
@@ -72,15 +108,27 @@ Table::createOrEditTables($tables);
     <span style="color: darkorchid">
         Webhook:
     </span>
-    <span style="color: darkseagreen">
-        Success
-    </span>
+    <?php if($setWebhookResult) { ?>
+        <span style="color: darkseagreen">
+            Success
+        </span>
+    <?php } else { ?>
+        <span style="color: red">
+            Fail
+        </span>
+    <?php } ?>
 </p>
 <p>
     <span style="color: darkorchid">
         Database:
     </span>
-    <span style="color: darkseagreen">
-        Success
-    </span>
+    <?php if($databaseResult) { ?>
+        <span style="color: darkseagreen">
+            Success
+        </span>
+    <?php } else { ?>
+        <span style="color: red">
+            Fail
+        </span>
+    <?php } ?>
 </p>

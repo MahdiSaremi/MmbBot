@@ -24,5 +24,31 @@ return [
      * App url
      */
     'url' => env('URL', ''),
+
+
+    /**
+     * Update types
+     */
+    'updates' => [
+
+        'msg',
+        // 'editedMsg',
+
+        'callback',
+        // 'joinReq',
+
+        'inline',
+        // 'chosenInline',
+
+        // 'chatMember',
+        // 'myChatMember',
+
+        // 'post',
+        // 'editedPost',
+
+        // 'poll',
+        // 'pollAnswer',
+
+    ],
     
 ];
